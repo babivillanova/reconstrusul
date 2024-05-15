@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,500&display=swap');
+
 .App {
   text-align: center;
-  background-color: #000000;
-  color: white  ;
+  /* background-color: #000000; */
+  color: black  ;
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 }
 
@@ -28,6 +35,11 @@
   color: white;
 }
 
+.header2{
+ display: flex;
+
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -39,4 +51,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.signbutton{
+  color: white;
+  background-color: red;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border:none;
+  transition: background-color 0.3s; /* Suavização da transição de cor */
+  cursor: pointer;
+}
+
+.signbutton:hover {
+  background-color: #720d0d; /* Cor mais clara para o hover */
 }

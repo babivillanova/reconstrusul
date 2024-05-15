@@ -1,25 +1,45 @@
-import React from 'react';
+import React , {useState} from 'react';
 import './LandingPage.css';
+import Chuva from './chuva.jpg';
  // Supondo que você tenha um arquivo CSS para estilização
 
 function LandingPage() {
+    const [ui, setUi] = useState('sobre');
     return (
         <div className="landing-container">
-            <div className="header">
-                <img src="/reconstrusul.png"  alt="Logo ReconstruSul" />
-                <h3>CAMPANHA INDEPENDENTE FRUTO DA UNIÃO DE ARQUITETOS DO BRASIL TODO EM PROL DA RECONSTRUÇÃO DO SUL</h3>
+            <div className="landing_header">
+                {/* <section className="title"> */}
+                <img src={Chuva} className='back_image' alt="Chuva" />
+                {/* <h3>CAMPANHA INDEPENDENTE FRUTO DA UNIÃO DE ARQUITETOS DO BRASIL TODO EM PROL DA RECONSTRUÇÃO DO SUL</h3> */}
+
+                <img className='header_logo' src="/reconstrusul.png"  alt="Logo ReconstruSul" />
+                {/* </section> */}
+             
             </div>
             <div className="content">
                 {/* botão Clique aqui para doar */}
                 <section className="donate">
-                    <h2>Clique  <a href="/app" className="donate-button">AQUI</a> para doar</h2>
+                <a href="/app" className="donate-button"> <h2>Clique aqui para doar</h2></a>
                     {/* route /app */}
                    
                 </section>
+                {ui === 'sobre'&& (<>
+                <div className="about">
                 <section className="mission">
-                    <h2>Qual a Missão da Campanha?</h2>
+                    <h2>Nossa Missão</h2>
                     <p>Unir o maior número de arquitetos, designers, engenheiros, lojistas e empresários do segmento de Arquitetura & Construção, para conscientizar seus clientes e prestadores de serviço a doar TODO e qualquer item de obra que iria ser DESCARTADO.</p>
                 </section>
+                <section className="recipients">
+                    <h2>Quem Vai Receber as Doações?</h2>
+                    <p>As arquitetas do Rio Grande do Sul que fazem parte desta iniciativa são:</p>
+                    <ul>
+                        <li>Aline Vilela, Sabrina Marques, Francini Mello</li>
+                        <li>Andrea Tessaro, Carlem Dorigon</li>
+         
+                    </ul>
+                    <p>As doações vão atender cidades pequenas do interior do RS, onde a ajuda é mais difícil de chegar.</p>
+                </section>
+                </div>
                 <section className="donation-info">
                     <h2>O que Preciso Saber Sobre a Campanha?</h2>
                     <ul>
@@ -30,46 +50,164 @@ function LandingPage() {
                         <li>Não ache que você sozinho não pode ajudar! Todo mundo pode e juntos somos um exército!</li>
                     </ul>
                 </section>
-                <section className="recipients">
-                    <h2>Quem Vai Receber as Doações?</h2>
-                    <p>As arquitetas do Rio Grande do Sul que fazem parte desta iniciativa são:</p>
+                <br/><br/>
+                </>)}
+                
+                {ui === 'oquedoar' && (
+  <>
+    <section className="donation-items">
+      <h2>O Que Doar?</h2>
+      <p>Lista de itens que podem ser doados, detalhada por categoria:</p> <br/>
+      <div className='donation_categories'>
+      <div>
+      <h3>Esquadrias e Segurança</h3>
+      <ul>
+        <li>Janela</li>
+        <li>Porta</li>
+        <li>Portão</li>
+        <li>Veneziana</li>
+        <li>Grade</li>
+        <li>Cadeado</li>
+        <li>Corrente</li>
+        <li>Fechadura</li>
+        <li>Dobradiça</li>
+      </ul>
+      </div><div>
+      <h3>Mobiliário e Eletroeletrônicos</h3>
+      <ul>
+        <li>Armário</li>
+        <li>Bancada</li>
+        <li>Cadeira</li>
+        <li>Colchão</li>
+        <li>Cortina</li>
+        <li>Estante</li>
+        <li>Mesa</li>
+        <li>Sofá</li>
+        <li>TV</li>
+        <li>Fogão</li>
+        <li>Microondas</li>
+        <li>Geladeira</li>
+      </ul>
+      </div><div>
+      <h3>Louças, Metais e Hidráulica</h3>
+      <ul>
+        <li>Cano, sifão</li>
+        <li>Chuveiro</li>
+        <li>Cuba, pia</li>
+        <li>Gancho</li>
+        <li>Lixeira</li>
+        <li>Papeleira</li>
+        <li>Torneira</li>
+        <li>Ralo</li>
+        <li>Saboneteira</li>
+        <li>Vaso Sanitário e tampa</li>
+      </ul>
+      </div><div>
+      <h3>Iluminação e Elétrica</h3>
+      <ul>
+        <li>Luminária</li>
+        <li>Lâmpada</li>
+        <li>Painel de LED</li>
+        <li>Tomada</li>
+        <li>Interruptor</li>
+        <li>Fiação</li>
+        <li>Conduíte</li>
+      </ul>
+      </div><div>
+      <h3>Revestimento e Pedra</h3>
+      <ul>
+        <li>Piso</li>
+        <li>Cerâmica</li>
+        <li>Granito</li>
+        <li>Mármore</li>
+        <li>Paver</li>
+        <li>Rodapé</li>
+        <li>Seixos</li>
+      </ul>
+      </div>
+      <div>
+      <h3>Ferramentas e Peças Metálicas</h3>
+      <ul>
+        <li>Alicate</li>
+        <li>Broca</li>
+        <li>Chave</li>
+        <li>Enxada</li>
+        <li>Escada</li>
+        <li>Fita veda rosca</li>
+        <li>Furadeira</li>
+        <li>Marreta</li>
+        <li>Martelo</li>
+        <li>Parafusadeira</li>
+        <li>Parafuso, prego</li>
+        <li>Rolo, pincel</li>
+        <li>Trena</li>
+        <li>Balde</li>
+      </ul> </div>
+      <div>
+      <h3>Estrutura e Cobertura</h3>
+      <ul>
+        <li>Areia</li>
+        <li>Bloco</li>
+        <li>Brita</li>
+        <li>Cimento</li>
+        <li>Lona</li>
+        <li>Madeira</li>
+        <li>Rejunte</li>
+        <li>Telha</li>
+        <li>Tijolo</li>
+        <li>Tinta</li>
+      </ul>
+      </div>
+     
+      </div>
+    </section>
+  </>
+)}
+
+                {ui === 'faq'&& (<><section className="faqs">
+                    <h2>FAQs</h2>
                     <ul>
-                        <li>Aline Vilela</li>
-                        <li>Sabrina Marques</li>
-                        <li>Francini Mello</li>
-                        <li>Andrea Tessaro</li>
-                        <li>Carlem Dorigon</li>
-                    </ul>
-                    <p>As doações vão atender cidades pequenas do interior do RS, onde a ajuda é mais difícil de chegar.</p>
-                </section>
-                <section className="donation-items">
-                    <h2>O Que Doar?</h2>
-                    <p>Lista de itens que podem ser doados:</p>
-                    <ul>
-                        <li>Esquadrias e Segurança (Janelas, Portas, etc.)</li>
-                        <li>Mobiliário e Eletroeletrônicos (Armários, Bancadas, etc.)</li>
-                        <li>Louças, Metais e Hidráulica (Cano, Chuveiro, etc.)</li>
-                        <li>Iluminação e Elétrica (Luminárias, Lâmpadas, etc.)</li>
-                        <li>Revestimento e Pedra (Piso, Cerâmica, etc.)</li>
-                        <li>Estrutura e Cobertura (Areia, Bloco, etc.)</li>
-                        <li>Ferramentas e Peças Metálicas (Alicate, Broca, etc.)</li>
+                    <p><strong> Vocês fazem retiradas das doações? </strong></p>
+                    <p> Não.</p>
+
+                    <p><strong>Quais cidades estão participando do Projeto?</strong></p>
+                    <p>São Paulo, São Caetano, etc.</p>
+
+                    <p><strong>Quais locais posso deixar minhas doações?</strong></p>
+                    <p>Cadastre seu item neste portal para receber o endereço do galpão disponível.</p>
+
+                    <p><strong>Será direcionado direto para as famílias?</strong></p>
+                    <p>Será direcionado para um Galpão no RS, onde as arquitetas responsáveis irão direcionar para as famílias de cidades menores, com idosos e portadores de deficiência física.</p>
+
+                       
                     </ul>
                 </section>
-                <section className="faqs">
-                    <h2>FAQs - ReconstruSul</h2>
-                    <ul>
-                        <li>Vocês fazem retiradas das doações? Não</li>
-                        <li>Quais cidades estão participando do Projeto? São Paulo, São Caetano, etc.</li>
-                        <li>Quais Locais posso deixar minhas doações? Na cidade de São Paulo, Galpão Sé, Praça da Sé 393 - São Paulo -SP</li>
-                        <li>Será direcionado direto para as famílias? Será direcionado para um Galpão onde as arquitetas responsáveis irão direcionar para as famílias de cidades menores, com idosos e portadores de deficiência física.</li>
-                    </ul>
-                </section>
-            </div>
-            <div className="contact">
+                <div className="contact">
                 <h2>Dúvidas?</h2>
-                <p>Entre em contato conosco através do email: reconstrusul.sos@gmail.com</p>
+                <p>Entre em contato conosco através do email: <br/>
+                <a href='mailto:reconstrusul.sos@gmail.com' style={{textDecoration:"none", color:"black"}}>reconstrusul.sos@gmail.com</a>
+                    </p>
+            </div><br/><br/>
+            </>)}
             </div>
+      
+        
+            <footer>
+                <div className='footer'>
+                <div className='sobre' onClick={()=>{setUi('sobre')}}> Sobre
+                    </div>
+                <div className='faq'
+                onClick={()=>{setUi('faq')}}>FAQ</div>
+    
+                <div className='oquedoar' onClick={()=>{setUi('oquedoar')}}>O que doar</div>
+
+                </div>
+            </footer>
+
+        
+        
         </div>
+
     );
 }
 

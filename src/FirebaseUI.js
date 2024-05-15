@@ -6,14 +6,14 @@ import { getFirestore } from "firebase/firestore";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCHGL9LDXa9T1GbuffqYLaGqgpNZObiocg",
-    authDomain: "reconstrusul-aba91.firebaseapp.com",
-    projectId: "reconstrusul-aba91",
-    storageBucket: "reconstrusul-aba91.appspot.com",
-    messagingSenderId: "937255657130",
-    appId: "1:937255657130:web:59c015aab48b6a46543ad3",
-    measurementId: "G-KHMGTYQHFM"
-  };
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
+    measurementId: process.env.REACT_APP_MEASUREMENT_ID
+};
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
@@ -73,14 +73,14 @@ const firebaseConfig = {
   
       return (
           <main style={{ display: "flex", flexDirection: "column", padding: "10px 20px", rowGap: "1rem" }}>
-              <div style={{ position: "fixed", top: 0, left: 0, width: "100%", display: "flex", justifyContent: "space-between", alignItems: "start", zIndex: 1000 }}>
+              <div style={{ position: "fixed", top: 0, left: 0, padding:"20px", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "start", zIndex: 1000 }}>
                   {!firebaseSignedIn && !isSignedIn ? (<>
-                      <SignInButton style={{ margin: "0 10px" }} />
+                      <SignInButton className="signbutton"style={{ margin: "0 10px" }} />
 </>
                   ) : (
                       <>
                           {/* <button style={{ margin: "0 10px" }} onClick={getFirestoreData}>Test Database connection</button> */}
-                          <SignOutButton style={{ margin: "0 10px" }} onClick={handleSignOut} />
+                          <SignOutButton className="signbutton" style={{ margin: "0 10px" }} onClick={handleSignOut} />
                       </>
                   )}
               </div>

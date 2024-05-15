@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from "@clerk/clerk-react";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import './SelecaoDePerfil.css';
+import NewItemForm from './NewItemForm';
 
 function SelecaoDePerfil() {
     const { user } = useUser();
     const [perfil, setPerfil] = useState('');
     const db = getFirestore();
+    const [cadastrar, setCadastrar] = useState(null);
 
     useEffect(() => {
         const verificarPerfil = async () => {
@@ -17,7 +20,7 @@ function SelecaoDePerfil() {
                 setPerfil(docSnap.data().perfil);
             }
         };
-        setTimeout(() => verificarPerfil(), 1000); // Adiciona um pequeno atraso para garantir que o usuário esteja autenticado
+        setTimeout(() => verificarPerfil(), 5000); // Adiciona um pequeno atraso para garantir que o usuário esteja autenticado
     }, [user.id, db]);
 
     const definirPerfil = async (perfilEscolhido) => {
@@ -32,8 +35,32 @@ function SelecaoDePerfil() {
         console.log("Perfil e informações do usuário foram definidos.");
     };
 
+    const handleCadastrar = () => {
+        setCadastrar(true);
+    }
+    const handleConsultar = () => {
+        setCadastrar(false);
+    }
+
     if (perfil) {
-        return <p>Perfil atual: {perfil}</p>;
+        return (<><p><br/><br/>Olá, {perfil}! <br/>
+        Informe abaixo os dados da sua doação.</p>
+        
+        <div className='alternativas'>
+            <div className='alternativa' onClick={handleCadastrar}>Cadastrar novo item</div>
+            {/* <div className='alternativa' onClick={handleConsultar}>Consultar itens cadastrados</div> */}
+        </div>
+        
+        {cadastrar === true && (<div className='cadastro'>
+            <NewItemForm userId={user.id} setCadastrar={setCadastrar}/>
+            
+            
+            
+            </div>)}
+        {cadastrar === false && <div>Consultar</div>}
+        
+        
+        </>)
     }
 
     return (

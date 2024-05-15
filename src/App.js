@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header">
+      <header className="header2">
         <FirebaseUI />
       </header>
       <main>

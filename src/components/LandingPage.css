@@ -1,7 +1,180 @@
-.header img{
+.landing-container{
+    color:black;
+    position: relative; /* Essencial para a posição absoluta do pseudo-elemento */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+
+.back_image {
+    height: 102vh; /* Altura total da tela */
+    width: 100vw; /* Largura total da tela */
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorções */
+    position: fixed; /* Fixa a imagem na tela */
+    top: 0; /* Alinha a imagem ao topo da tela */
+    left: 0; /* Alinha a imagem à esquerda da tela */
+    z-index: -1 ;/* Mantém a imagem atrás de todo o conteúdo */
+
+    filter:brightness(50%) blur(2px) contrast(50%);
+    /* opacity: 0.5; */
+}
+
+.header_logo{
     width: 100px;
     height: 100px;
     /* object-fit: cover; */
     position: relative;
     /* opacity: 0.5; */
+}
+
+.landing_header {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    z-index: 0; /* Ajustar conforme necessário para garantir a visibilidade dos textos e logos */
+}
+
+.content{
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+}
+.donate-button{
+    background-color: #d00e00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 35px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    /* add animation for background hover */
+    transition: background-color 0.3s;
+    z-index: 100;
+}
+
+.donate-button:hover{
+    background-color: #ff0000;
+}
+
+/* remove bullet points from li */
+ul{
+    list-style-type: none;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* padding: 40px 100px ; */
+    gap: 40px;
+}
+
+.mission, .recipients{
+    flex: 1;
+    padding: 20px;
+    max-width: 400px;
+}
+
+ p, ul{
+  margin:0;
+  padding: 0;
+}
+
+.footer{
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    width: 100%;
+    z-index: 100000;
+    font-weight: 300;
+}
+
+
+
+.footer div {
+    position: relative; /* Permite que o pseudo-elemento seja posicionado relativamente a este div */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.footer div::after {
+    content: '';
+    display: block;
+    width: 0; /* Largura inicial do sublinhado */
+    height: 2px; /* Espessura do sublinhado */
+    background-color: currentColor; /* Cor do sublinhado - assume a cor do texto */
+    transition: width 0.3s ease-in-out; /* Transição suave da largura */
+    position: absolute;
+    bottom: 0; /* Posicionado na parte inferior do div */
+    left: 0; /* Inicia do lado esquerdo */
+}
+
+.footer div:hover::after {
+    width: 100%; /* Expandir a largura para 100% ao passar o mouse */
+}
+
+.faqs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.donation_categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+ 
+}
+
+.donation_categories h3{
+
+    font-size: 14px;
+}
+
+.donation_categories li{
+    font-size: 12px;
+}
+
+.mission p, .recipients p{
+   text-align: justify;
+}
+
+@media screen and (max-width: 600px){
+    .about{
+        flex-direction: column;
+    }
+ 
+    .footer div::after{
+        width: 0;
+    }
+    
 }
