@@ -66,10 +66,10 @@ function SelecaoDePerfil() {
     return (
         <div>
             <h1>Escolha seu perfil</h1>
-            <button onClick={() => definirPerfil('Admin')}>Admin</button>
+            {/* <button onClick={() => definirPerfil('Admin')}>Admin</button> */}
             <button onClick={() => definirPerfil('Doador')}>Doador</button>
-            <button onClick={() => definirPerfil('Gestor de Armazém')}>Gestor de Armazém</button>
-            <button onClick={() => definirPerfil('Gestor de Transporte')}>Gestor de Transporte</button>
+            {/* <button onClick={() => definirPerfil('Gestor de Armazém')}>Gestor de Armazém</button>
+            <button onClick={() => definirPerfil('Gestor de Transporte')}>Gestor de Transporte</button> */}
         </div>
     );
 }
