@@ -73,13 +73,13 @@ const firebaseConfig = {
   
       return (
           <main style={{ display: "flex", flexDirection: "column", padding: "10px 20px", rowGap: "1rem" }}>
-              <div style={{ position: "fixed", top: 0, left: 0, width: "100%", background: "white", boxShadow: "0 2px 4px rgba(0,0,0,0.1)", display: "flex", justifyContent: "space-between", alignItems: "start", zIndex: 1000 }}>
+              <div style={{ position: "fixed", top: 0, left: 0, width: "100%", display: "flex", justifyContent: "space-between", alignItems: "start", zIndex: 1000 }}>
                   {!firebaseSignedIn && !isSignedIn ? (<>
                       <SignInButton style={{ margin: "0 10px" }} />
 </>
                   ) : (
                       <>
-                          <button style={{ margin: "0 10px" }} onClick={getFirestoreData}>Get document</button>
+                          {/* <button style={{ margin: "0 10px" }} onClick={getFirestoreData}>Test Database connection</button> */}
                           <SignOutButton style={{ margin: "0 10px" }} onClick={handleSignOut} />
                       </>
                   )}
