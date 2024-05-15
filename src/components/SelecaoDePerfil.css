@@ -33,7 +33,6 @@
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     margin-top: 20px;
 }
 
@@ -43,22 +42,78 @@
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 15px;
+    width: fit-content;
     border:none;
-    transition: background-color 0.3s; /* Suavização da transição de cor */
+    transition: background-color 0.3s; 
     cursor: pointer;
   }
   
   .cadastro_button:hover {
-    background-color: #720d0d; /* Cor mais clara para o hover */
+    background-color: #720d0d; 
   }
-
+/* 
   .cadastro_form input, .cadastro_form textarea{
     padding: 10px;
     border-radius: 15px;
     border: 1px solid #ffbeb9;
-     ;    background-color: #ffffff;
-    /* border: 1px solid #ff1100; */
+ background-color: #ffffff;
+
     margin: 10px;
+    width: 100%;
   }
 
+  .cadastro_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+  } */
+
+  .cadastro_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Adjust width as needed */
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin: auto;
+  }
   
+  .cadastro_form input,
+  .cadastro_form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  input[type="file"]::file-selector-button {
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+
+  .cadastro_form label{
+    font-weight: lighter;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  /* textarea placeholder font */
+    ::-webkit-input-placeholder {
+        /* font-size: 14px; */
+        font-family: 'Roboto', sans-serif;
+    }

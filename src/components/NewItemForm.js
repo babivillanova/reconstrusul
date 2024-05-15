@@ -77,7 +77,12 @@ function NewItemForm({ userId, setCadastrar }) {
             setCadastrar(null)
 
         } catch (error) {
-            alert('Erro ao enviar dados: ' + error.message);
+            if (error.message.includes('Request payload size exceeds the limit')) {
+                alert('Erro ao enviar dados: As imagens enviadas são muito grandes. O tamanho máximo permitido é de 2 MB.');
+              } else {
+                // Tratamento para outros tipos de erro
+                alert('Erro ao enviar dados: ' + error.message);
+              }
         }
     };
 
@@ -101,7 +106,7 @@ function NewItemForm({ userId, setCadastrar }) {
         }} className='cadastro_form'>
             <input type="text" name="cep" placeholder="CEP de onde irá partir com a doação" value={formData.cep} onChange={handleInputChange} required />
             <input type="text" name="itemName" placeholder="Nome do Item (ex.: cadeira)" value={formData.itemName} onChange={handleInputChange} required />
-            <textarea name="description" placeholder="Descrição complementar" value={formData.description} onChange={handleInputChange} required />
+            <textarea name="description" placeholder="Descrição complementar e quantidade" value={formData.description} onChange={handleInputChange} required />
             <label htmlFor="photoUnpacked">Foto do item desembalado (até 2mb)</label>
             <input type="file" name="photoUnpacked" onChange={handleFileChangeUnpacked} required />
             <label htmlFor="photoPacked">Foto do item embalado (até 2mb)</label>

@@ -12,15 +12,27 @@
 
 .back_image {
     height: 102vh; /* Altura total da tela */
-    width: 100vw; /* Largura total da tela */
+    width: 102vw; /* Largura total da tela */
     object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorções */
     position: fixed; /* Fixa a imagem na tela */
-    top: 0; /* Alinha a imagem ao topo da tela */
-    left: 0; /* Alinha a imagem à esquerda da tela */
+    top: -10px; /* Alinha a imagem ao topo da tela */
+    left: -10px; /* Alinha a imagem à esquerda da tela */
     z-index: -1 ;/* Mantém a imagem atrás de todo o conteúdo */
 
     filter:brightness(50%) blur(2px) contrast(50%);
     /* opacity: 0.5; */
+}
+
+.back_image::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Cor de fundo com transparência */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .header_logo{
@@ -39,6 +51,19 @@
     gap: 20px;
     padding: 20px;
     z-index: 0; /* Ajustar conforme necessário para garantir a visibilidade dos textos e logos */
+}
+
+.landing_header::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 1); /* Cor de fundo com transparência */
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .content{
@@ -104,8 +129,12 @@ ul{
     bottom:0;
     left: 0;
     width: 100%;
+    height: 40px;
     z-index: 100000;
-    font-weight: 300;
+    font-weight: 500;
+    text-transform: uppercase;
+  
+
 }
 
 
@@ -125,11 +154,11 @@ ul{
     content: '';
     display: block;
     width: 0; /* Largura inicial do sublinhado */
-    height: 2px; /* Espessura do sublinhado */
+    height: 1px; /* Espessura do sublinhado */
     background-color: currentColor; /* Cor do sublinhado - assume a cor do texto */
     transition: width 0.3s ease-in-out; /* Transição suave da largura */
     position: absolute;
-    bottom: 0; /* Posicionado na parte inferior do div */
+    bottom: -5px; /* Posicionado na parte inferior do div */
     left: 0; /* Inicia do lado esquerdo */
 }
 
