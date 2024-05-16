@@ -197,6 +197,18 @@ ul{
    text-align: justify;
 }
 
+.landing_header_banner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    z-index: 1000;
+}
+
 @media screen and (max-width: 600px){
     .about{
         flex-direction: column;
@@ -206,4 +218,11 @@ ul{
         width: 0;
     }
     
+    .landing_header::before {
+      
+        background-color: rgba(0, 0, 0, 0); /* Cor de fundo com transparência */
+        
+    }
+
 }
+

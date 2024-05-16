@@ -66,7 +66,8 @@ function NewItemForm({ userId, setCadastrar }) {
             photoUnpacked: photoUnpackedUrl,
             photoPacked: photoPackedUrl,
             dimensions: formData.dimensions,
-            timestamp: new Date()
+            timestamp: new Date(),
+            status: 'pending'
         };
 
         

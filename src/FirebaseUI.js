@@ -73,7 +73,7 @@ const firebaseConfig = {
   
       return (
           <main style={{ display: "flex", flexDirection: "column", padding: "10px 20px", rowGap: "1rem" }}>
-              <div style={{ position: "fixed", top: 0, left: 0, padding:"20px", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "start", zIndex: 1000 }}>
+              <div className="landing_header_banner">
                   {!firebaseSignedIn && !isSignedIn ? (<>
                       <SignInButton className="signbutton"style={{ margin: "0 10px" }} />
 </>
