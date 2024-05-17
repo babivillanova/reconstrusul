@@ -5,8 +5,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -30px;
-    margin-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    z-index: -10000;
 }
 
 
@@ -50,15 +51,14 @@
     align-items: center;
     gap: 20px;
     padding: 20px;
-    z-index: 0; /* Ajustar conforme necessário para garantir a visibilidade dos textos e logos */
-}
+    z-index: 0; }
 
 .landing_header::before {
     content: '';
     display: block;
     width: 100%;
     height: 75px;
-    background-color: rgba(0, 0, 0, 1); /* Cor de fundo com transparência */
+    background-color: rgba(0, 0, 0, 1); 
     position: fixed;
 
     top: 0;
@@ -206,7 +206,7 @@ ul{
     display: flex;
     justify-content: space-between;
     align-items: start;
-    z-index: 1000;
+    /* z-index: 100000; */
 }
 
 @media screen and (max-width: 600px){
