@@ -7,7 +7,6 @@
     align-items: center;
     margin-top: 60px;
     margin-bottom: 60px;
-    z-index: -10000;
 }
 
 
@@ -206,7 +205,7 @@ ul{
     display: flex;
     justify-content: space-between;
     align-items: start;
-    /* z-index: 100000; */
+    z-index: 1000;
 }
 
 @media screen and (max-width: 600px){
