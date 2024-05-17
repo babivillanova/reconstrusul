@@ -9,7 +9,7 @@ function NewItemForm({ userId, setCadastrar }) {
         warehouse: 'Sé',
         cep: '',
         itemCategory: 'Esquadrias e Segurança',
-        itemName: '',
+        itemName: 'Janela',
         description: '',
         photoUnpacked: null,
         photoPacked: null,
@@ -116,7 +116,7 @@ function NewItemForm({ userId, setCadastrar }) {
 
 
     const items = {
-        "Esquadrias e Segurança": ["Janela", "Porta", "Portão", "Veneziana", "Grade", "Cadeado", "Corrente", "Fechadura", "Dobradiça"],
+        "ESQUADRIAS E SEGURANÇA": ["Janela", "Porta", "Portão", "Veneziana", "Grade", "Cadeado", "Corrente", "Fechadura", "Dobradiça"],
         "MOBILIÁRIO E ELETROELETRÔNICOS": ["Armário", "Bancada", "Cadeira", "Colchão", "Cortina", "Estante", "Mesa", "Sofá", "TV", "Fogão", "Microondas", "Geladeira"],
         "LOUÇAS, METAIS E HIDRÁULICA": ["Cano, sifão", "Chuveiro", "Cuba, pia", "Gancho", "Lixeira", "Papeleira", "Torneira", "Ralo", "Saboneteira", "Vaso Sanitário e tampa"],
         "ILUMINAÇÃO E ELÉTRICA": ["Luminária", "Lâmpada", "Painel de LED", "Tomada", "Interruptor", "Fiação", "Conduíte"],
