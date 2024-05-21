@@ -145,10 +145,15 @@ function NewItemForm({ userId, setCadastrar }) {
                 </select>
                 <label htmlFor="itemName">Nome do Item</label>
                 <select name="itemName" value={formData.itemName} onChange={handleInputChange} required>
-                    {items[formData.itemCategory].map(item => (
-                        <option key={item} value={item}>{item}</option>
-                    ))}
-                </select>
+    {items[formData.itemCategory] ? (
+        items[formData.itemCategory].map(item => (
+            <option key={item} value={item}>{item}</option>
+        ))
+    ) : (
+        <option>Selecione uma categoria válida</option>
+    )}
+</select>
+
                 <textarea name="description" placeholder="Descrição complementar e quantidade" value={formData.description} onChange={handleInputChange} required />
                 <input type="number" name="quantity" placeholder="Quantidade" value={formData.quantity} onChange={handleInputChange} required />
                 <label htmlFor="photoUnpacked">Foto do item desembalado (até 2mb)</label>

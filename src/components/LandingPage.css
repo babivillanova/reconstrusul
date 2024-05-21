@@ -206,6 +206,8 @@ ul{
     justify-content: space-between;
     align-items: start;
     z-index: 1000;
+    background-color: #000000;
+    height: 40px
 }
 
 @media screen and (max-width: 600px){

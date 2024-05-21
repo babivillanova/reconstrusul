@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <header className="header2">
         <FirebaseUI firebaseSignedIn={firebaseSignedIn} setFirebaseSignedIn={setFirebaseSignedIn}/>
-      </header>
+      </header> <br/>
       <main>
         <Routes>
           <Route path="/" element={<LandingPage />} />
