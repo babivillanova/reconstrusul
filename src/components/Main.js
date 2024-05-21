@@ -4,7 +4,7 @@ import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs, u
 import './Main.css';
 import NewItemForm from './NewItemForm';
 
-function Main() {
+function Main({ firebaseSignedIn}) {
     const { user } = useUser();
     const [perfil, setPerfil] = useState('');
     const db = getFirestore();
@@ -52,39 +52,81 @@ function Main() {
     };
 
     useEffect(() => {
+
         const verificarPerfil = async () => {
-            const docRef = doc(db, "usuarios", user.id);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                console.log("Perfil já está definido.");
-                setPerfil(docSnap.data().perfil);
-                console.log(docSnap.data().perfil);
-            }
-
-            if (docSnap.exists() && docSnap.data().perfil === 'admin') {
-                const itemsRef = collection(db, "ItemParaAprovar");
-                // Ajusta a consulta para incluir apenas itens que não têm o campo 'status'
-                const q = query(itemsRef, where("status", "==", "pending"));
-                const querySnapshot = await getDocs(q);
-                setItensParaAprovar(querySnapshot.size);
-
-                // Busca o primeiro item para ser aprovado que não tem o campo 'status'
-                if (!querySnapshot.empty) {
-                    const firstDoc = querySnapshot.docs[0];
-                    const firstDocData = {
-                        id: firstDoc.id, // Inclui o ID do documento
-                        ...firstDoc.data() // Espalha todos os outros campos de dados
-                    };
-                    setJsonItemParaAprovar(firstDocData);
+            try {
+                const docRef = doc(db, "usuarios", user.id);
+                const docSnap = await getDoc(docRef);
+    
+                if (docSnap.exists()) {
+                    console.log("Perfil já está definido.");
+                    setPerfil(docSnap.data().perfil);
+                    console.log(docSnap.data().perfil);
                 }
+    
+                if (docSnap.exists() && docSnap.data().perfil === 'admin') {
+                    const itemsRef = collection(db, "ItemParaAprovar");
+                    const q = query(itemsRef, where("status", "==", "pending"));
+                    const querySnapshot = await getDocs(q);
+                    setItensParaAprovar(querySnapshot.size);
+    
+                    if (!querySnapshot.empty) {
+                        const firstDoc = querySnapshot.docs[0];
+                        const firstDocData = {
+                            id: firstDoc.id,
+                            ...firstDoc.data()
+                        };
+                        setJsonItemParaAprovar(firstDocData);
+                    }
+                }
+            } catch (error) {
+                console.error("Erro ao verificar perfil:", error);
+            } finally {
+                setLoading(false);
             }
-
-            setLoading(false);  // Update loading state once the Firestore check is complete
-
         };
-        setTimeout(() => verificarPerfil(), 1000); // Adiciona um pequeno atraso para garantir que o usuário esteja autenticado
-    }, [user.id, db]);
+        if (firebaseSignedIn) {
+             verificarPerfil()
+             verificarItensParaAprovar();
+        }
+
+    }, [user.id, db, firebaseSignedIn]);
+    
+
+    // useEffect(() => {
+    //     const verificarPerfil = async () => {
+    //         const docRef = doc(db, "usuarios", user.id);
+    //         const docSnap = await getDoc(docRef);
+
+    //         if (docSnap.exists()) {
+    //             console.log("Perfil já está definido.");
+    //             setPerfil(docSnap.data().perfil);
+    //             console.log(docSnap.data().perfil);
+    //         }
+
+    //         if (docSnap.exists() && docSnap.data().perfil === 'admin') {
+    //             const itemsRef = collection(db, "ItemParaAprovar");
+    //             // Ajusta a consulta para incluir apenas itens que não têm o campo 'status'
+    //             const q = query(itemsRef, where("status", "==", "pending"));
+    //             const querySnapshot = await getDocs(q);
+    //             setItensParaAprovar(querySnapshot.size);
+
+    //             // Busca o primeiro item para ser aprovado que não tem o campo 'status'
+    //             if (!querySnapshot.empty) {
+    //                 const firstDoc = querySnapshot.docs[0];
+    //                 const firstDocData = {
+    //                     id: firstDoc.id, // Inclui o ID do documento
+    //                     ...firstDoc.data() // Espalha todos os outros campos de dados
+    //                 };
+    //                 setJsonItemParaAprovar(firstDocData);
+    //             }
+    //         }
+
+    //         setLoading(false);  // Update loading state once the Firestore check is complete
+
+    //     };
+    //     setTimeout(() => verificarPerfil(), 1000); 
+    // }, [user.id, db]);
 
     useEffect(() => {
         // Assume jsonItemParaAprovar is fetched somewhere and eventually set
@@ -116,11 +158,6 @@ function Main() {
         }
     };
 
-    useEffect(() => {
-        setTimeout(() => {
-            verificarItensParaAprovar();
-        }, 1000);
-    }, [user.id, db]);
 
     const definirPerfil = async (perfilEscolhido) => {
         const docRef = doc(db, "usuarios", user.id);

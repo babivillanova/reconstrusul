@@ -19,10 +19,9 @@ const firebaseConfig = {
   const db = getFirestore(app);
   const auth = getAuth(app);
   
-  function FirebaseUI() {
+  function FirebaseUI({firebaseSignedIn, setFirebaseSignedIn}) {
       const { getToken } = useAuth();
       const { isSignedIn } = useUser();
-      const [firebaseSignedIn, setFirebaseSignedIn] = useState(false);
   
       useEffect(() => {
           console.log(isSignedIn, firebaseSignedIn);
