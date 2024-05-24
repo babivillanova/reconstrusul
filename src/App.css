@@ -64,7 +64,7 @@ color:white */
   background-color: red;
   font-weight: bold;
   padding: 10px 20px;
-  border-radius: 15px;
+  border-radius: 25px;
   border:none;
   transition: background-color 0.3s; /* Suavização da transição de cor */
   cursor: pointer;

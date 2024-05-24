@@ -75,11 +75,22 @@
     padding: 20px;
     max-width: 800px;
 }
+
+.donate{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+
+}
 .donate-button{
     background-color: #d00e00;
     color: white;
     padding: 10px 20px;
-    border-radius: 35px;
+    border-radius: 45px;
     text-decoration: none;
     margin-top: 20px;
     display: inline-block;
@@ -225,5 +236,8 @@ ul{
         
     }
 
+    .donate{
+        flex-direction: column;
+    }
 }
 

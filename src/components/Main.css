@@ -16,7 +16,7 @@
     width: 200px;
     margin: 10px;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 40px;
     background-color: #ff1100;
     color: white;
     font-weight: bold;
@@ -118,6 +118,17 @@ input[type="file"]::file-selector-button {
     border: 1px solid #ccc;
     cursor: pointer;
 }
+
+input[type="radio"]::content{
+    /* margin-right: 5px; */
+    font-size: 10px;
+
+}
+
+/* change size of checkbox */
+/* input[type="checkbox"] {
+    margin-top: 15px;
+} */
 
 .cadastro_form label {
     font-weight: lighter;

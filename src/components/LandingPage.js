@@ -19,7 +19,8 @@ function LandingPage() {
             <div className="content">
                 {/* botão Clique aqui para doar */}
                 <section className="donate">
-                <a href="/app" className="donate-button"> <h2>Clique aqui para doar</h2></a>
+                  <div><a href="/app" className="donate-button"> <h2>Clique aqui para doar</h2></a></div>
+                <div><a href="/app" className="donate-button"> <h2>Se cadastre e receba</h2></a></div>
                     {/* route /app */}
                    
                 </section>
