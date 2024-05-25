@@ -54,6 +54,7 @@ function Receber({ userId, setCadastrar }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         setShowConfirmation(true);
+        confirmSubmit();
     };
 
     const confirmSubmit = async () => {
@@ -67,7 +68,7 @@ function Receber({ userId, setCadastrar }) {
 
         try {
             setLoading(true);
-            await addDoc(collection(db, "NeedsToApprove"), needDoc);
+            await addDoc(collection(db, "RecebedorParaAprovar"), needDoc);
             alert('Cadastro realizado com sucesso! Aguarde o contato da equipe de aprovação.');
             setCadastrar(null);
         } catch (error) {
